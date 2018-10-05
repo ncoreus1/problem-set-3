@@ -27,7 +27,16 @@ public class ProblemSet3 {
 	 */
 	
 	public static void main(String[] args) {
-			
+		ProblemSet3 ps3 = new ProblemSet3();
+		ps3.dateFashion(5, 5);
+		ps3.fizzString("fig");
+		ps3.fizzStringAgain(1);
+		ps3.makeBricks(3, 1, 8);
+		ps3.loneSum(1, 2, 3);
+		ps3.luckySum(1, 2, 3);
+		ps3.factorialFor(4);
+		ps3.factorialWhile(4);
+		ps3.isPrime(17);
 	}
 	
 	/*
@@ -47,7 +56,15 @@ public class ProblemSet3 {
 	 */
 	
 	public void dateFashion(int you, int date) {
-		
+		if (you <= 8 || date <= 8) {
+			System.out.println("YES");
+		}
+		else if (you <= 2 || date <= 2 ){
+			System.out.println("NO");
+		}
+		else {
+			System.out.println("MAYBE");
+		}
 	}
 	
 	/*
@@ -62,7 +79,18 @@ public class ProblemSet3 {
 	 */
 	
 	public void fizzString(String str) {
-		
+		if (str.charAt(0) == 'f') {
+			System.out.println("FIZZ");
+		}
+		else if (str.charAt(str.length() - 1) == 'b') {
+			System.out.println("BUZZ");
+		}
+		else if (str.charAt(0) == 'f' && str.charAt(str.length() - 1) == 'b') {
+			System.out.println("FIZZBUZZ");
+		}
+		else {
+			System.out.println(str);
+		}
 	}
 	
 	/*
@@ -78,7 +106,22 @@ public class ProblemSet3 {
 	 */
 	
 	public void squirrelPlay(int temp, boolean isSummer) {
-		
+		 if (isSummer == true) {
+			 if (temp > 60 && temp < 100) {
+				 System.out.println("YES");
+			 }
+			 else {
+				 System.out.println("NO");
+			 }
+		 }
+		 else {
+			 if (temp > 60 && temp < 90) {
+				 System.out.println("YES");
+			 }
+			 else {
+				 System.out.println("NO");
+			 }
+		 }
 	}
 	
 	/*
@@ -93,7 +136,18 @@ public class ProblemSet3 {
 	 */
 	
 	public void fizzStringAgain(int n) {
-		
+		if (n % 3 == 0) {
+			System.out.println("FIZZ");
+		}
+		else if (n % 6 == 0) {
+			System.out.println("BUZZ");
+		}
+		else if (n % 3 == 0 && n % 6 == 0) {
+			System.out.println("FIZZBUZZ");
+		}
+		else {
+			System.out.println(n + "!");
+		}
 	}
 	
 	/*
@@ -108,7 +162,12 @@ public class ProblemSet3 {
 	 */
 	
 	public void makeBricks(int small, int big, int goal) {
-		
+		if (small + (big*5) >= goal) {
+			System.out.println("YES");
+		}
+		else {
+			System.out.println("NO");
+		}
 	}
 	
 	/*
@@ -121,7 +180,25 @@ public class ProblemSet3 {
 	 */
 	
 	public void loneSum(int a, int b, int c) {
-		
+		int sum = a + b + c;
+		if (a == b) {
+			sum = sum - a - b; 
+			System.out.println(sum);
+		}
+		else if (b == c) {
+			sum = sum - c - b;
+			System.out.println(sum);
+		}
+		else if (c == a) {
+			sum = sum - a - c;
+			System.out.println(sum);
+		}
+		else if (a == b && a == c) {
+			System.out.println("0");
+		}
+		else {
+			System.out.println(sum);
+		}
 	}
 	
 	/*
@@ -135,7 +212,22 @@ public class ProblemSet3 {
 	 */
 	
 	public void luckySum(int a, int b, int c) {
-		
+		int sum = a + b + c;
+		if (a == 13) {
+			sum = sum - a; 
+			System.out.println(sum);
+		}
+		else if (b == 13) {
+			sum = sum - a - b;
+			System.out.println(sum);
+		}
+		else if (c == 13) {
+			sum = sum - a - b - c;
+			System.out.println(sum);
+		}
+		else {
+			System.out.println(sum);
+		}
 	}
 	
 	/*
@@ -148,7 +240,11 @@ public class ProblemSet3 {
 	 */
 	
 	public void factorialFor(int n) {
-		
+		int product = 1;
+		for (int i = 1; i <= n; i++) {
+			product = product * i;
+		}
+		System.out.println(product);
 	}
 	
 	/*
@@ -162,7 +258,13 @@ public class ProblemSet3 {
 	 */
 	
 	public void factorialWhile(int n) {
-		
+		int product = 1;
+		int i = 1;
+		while (i <= n) {
+			product = product * i;
+			i++;
+		}
+		System.out.println(product);
 	}
 	
 	/*
@@ -175,6 +277,22 @@ public class ProblemSet3 {
 	 */
 	
 	public void isPrime(int n) {
-		
+		boolean prime = true;
+		int divider = 2;
+		do {
+			if (n % divider == 0) {
+				prime = false;
+			}
+			else {
+				divider++; 
+			}
+		}
+		while (divider <= (n / 2)); 
+		if (prime == true) {
+			System.out.println("YES");
+		}
+		else {
+			System.out.println("NO");
+		}	
 	}
 }
